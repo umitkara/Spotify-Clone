@@ -40,26 +40,33 @@ include("includes/handlers/login_handler.php");
             <h2>Create Spotify Clone account</h2>
             <p>It's free</p>
             <p>
+                <?php echo $account->get_error_span("username") ?>
                 <label for="username">Username:</label>
                 <input type="text" name="username" id="username" placeholder="Username" required>
             </p>
             <p>
+                <?php echo $account->get_error_span("firstname") ?>
                 <label for="firstname">Firstname:</label>
                 <input type="text" name="firstname" id="firstname" placeholder="Firstname" required>
             </p>
             <p>
+                <?php echo $account->get_error_span("lastname") ?>
                 <label for="lastname">Lastname:</label>
                 <input type="text" name="lastname" id="lastname" placeholder="Lastname" required>
             </p>
             <p>
+                <?php echo $account->get_error_span("email") ?>
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" placeholder="Email" required>
             </p>
             <p>
+                <?php echo $account->get_error_span("password2") ?>
+                <?php echo $account->get_error_span("password3") ?>
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password" placeholder="Password" required>
             </p>
             <p>
+            <?php echo $account->get_error_span("password1") ?>
                 <label for="passwordConfirm">Confirm password:</label>
                 <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm password" required>
             </p>
