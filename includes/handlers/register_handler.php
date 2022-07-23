@@ -35,11 +35,9 @@ if (isset($_POST['register'])) {
 
     if($registerResutlt == true)
     {
+        // Not secure. Maybe hash or uuid?
+        $_SESSION['user_id'] = $username;
         header("Location: index.php");
-    }
-    else {
-        echo "Registration failed";
-        // redirect to something went wrong page?
     }
 }
 
