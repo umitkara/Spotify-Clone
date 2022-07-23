@@ -52,17 +52,19 @@ class Account {
     private function validate_username($username): void
     {
         if(strlen($username) > 25 || strlen($username) < 5) {
-            $this->errors['username'] = "Username must be between 5 and 25 characters";
-            // array_push($this->errors, "Username must be between 5 and 25 characters");
+            $this->errors['username1'] = "Username must be between 5 and 25 characters";
         }
         // Check if username already exist
+        $username_check = $this->connection->query("SELECT username FROM users WHERE username = '$username'");
+        if(mysqli_num_rows($username_check) > 0) {
+            $this->errors['username2'] = "Username already exist";
+        }
     }
 
     private function validate_firstname($firstname): void
     {
         if(strlen($firstname) > 25 || strlen($firstname) < 2) {
             $this->errors['firstname'] = "Firstname must be between 2 and 25 characters";
-            // array_push($this->errors, "Firstname must be between 2 and 25 characters");
         }
     }
 
@@ -70,32 +72,31 @@ class Account {
     {
         if(strlen($lastname) > 25 || strlen($lastname) < 2) {
             $this->errors['lastname'] = "Lastname must be between 2 and 25 characters";
-            //array_push($this->errors, "Lastname must be between 2 and 25 characters");
         }
     }
 
     private function validate_email($email): void
     {
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $this->errors['email'] = "Email is not valid";
-            // array_push($this->errors, "Email is invalid");
+            $this->errors['email1'] = "Email is not valid";
         }
         // Check if email already exist
+        $emial_check = $this->connection->query("SELECT email FROM users WHERE email = '$email'");
+        if (mysqli_num_rows($emial_check) > 0) {
+            $this->errors['email2'] = "Email already exist";
+        }
     }
 
     private function validate_password($password1, $password2): void
     {
         if($password1 != $password2) {
             $this->errors['password1'] = "Passwords do not match";
-            // array_push($this->errors, "Passwords do not match");
         }
         if(strlen($password1) > 25 || strlen($password1) < 5) {
             $this->errors['password2'] = "Password must be between 5 and 25 characters";
-            // array_push($this->errors, "Password must be between 5 and 25 characters");
         }
         if(preg_match('/[^A-Za-z0-9]/', $password1)) {
             $this->errors['password3'] = "Password must only contain letters and numbers";
-            // array_push($this->errors, "Password must only contain letters and numbers");
         }
     }
 }

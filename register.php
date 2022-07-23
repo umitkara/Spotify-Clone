@@ -49,7 +49,8 @@ function get_input_value($name)
             <h2>Create Spotify Clone account</h2>
             <p>It's free</p>
             <p>
-                <?php echo $account->get_error_span("username") ?>
+                <?php echo $account->get_error_span("username1") ?>
+                <?php echo $account->get_error_span("username2") ?>
                 <label for="username">Username:</label>
                 <input type="text" name="username" id="username" placeholder="Username" value="<?php get_input_value("username") ?>" required>
             </?php>
@@ -64,7 +65,8 @@ function get_input_value($name)
                 <input type="text" name="lastname" id="lastname" placeholder="Lastname" value="<?php get_input_value("lastname") ?>" required>
             </?php>
             <p>
-                <?php echo $account->get_error_span("email") ?>
+                <?php echo $account->get_error_span("email1") ?>
+                <?php echo $account->get_error_span("email2") ?>
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" placeholder="Email" value="<?php get_input_value("email") ?>" required>
             </?php>
