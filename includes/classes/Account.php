@@ -1,5 +1,10 @@
 <?php
 class Account {
+    /** 
+     * Account class to handle registration and login of users.
+     * @param $connection - The connection to the database.
+     * @return void
+     */
 
     private $errors;
     private $connection;
@@ -10,6 +15,16 @@ class Account {
         $this->errors = array();
     }
 
+    /**
+     * Register a new user.
+     * @param $username - The username of the new user.
+     * @param $firstname - The firstname of the new user.
+     * @param $lastname - The lastname of the new user.
+     * @param $email - The email of the new user.
+     * @param $password - The password of the new user.
+     * @param $passwordConfirm - The password confirmation of the new user.
+     * @return bool - True if registration was successful, false if not.
+     */
     public function register(string $username, string $firstname, string $lastname, string $email, string $password, string $passwordConfirm)
     {
         $this->validate_username($username);
@@ -27,7 +42,13 @@ class Account {
         }
     }
 
-    public function get_error_span($field)
+    /**
+     * Login a user.
+     * @param $username - The username of the user.
+     * @param $password - The password of the user.
+     * @return bool - True if login was successful, false if not.
+     */
+    public function get_error_span($field): string
     {
         if(!empty($this->errors[$field]))
         {
@@ -38,6 +59,12 @@ class Account {
         }
     }
 
+    /**
+     * Login a user.
+     * @param $username - The username of the user.
+     * @param $password - The password of the user.
+     * @return bool - True if login was successful, false if not.
+     */
     public function login(string $username, string $password)
     {
         $sql = "SELECT * FROM users WHERE username = '$username'";
