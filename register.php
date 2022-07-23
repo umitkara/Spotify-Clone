@@ -1,8 +1,9 @@
 <?php
 
+include("includes/dbconfig.php");
 include("includes/classes/Account.php");
 
-$account = new Account();
+$account = new Account($connection);
 
 include("includes/handlers/register_handler.php");
 include("includes/handlers/login_handler.php");

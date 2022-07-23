@@ -35,8 +35,7 @@ if (isset($_POST['register'])) {
 
     if($registerResutlt == true)
     {
-        echo "Registration successful";
-        // redirect to index.php
+        header("Location: index.php");
     }
     else {
         echo "Registration failed";

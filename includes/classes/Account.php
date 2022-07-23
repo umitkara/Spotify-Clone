@@ -2,9 +2,11 @@
 class Account {
 
     private $errors;
+    private $connection;
 
-    public function __construct()
+    public function __construct($connection)
     {
+        $this->connection = $connection;
         $this->errors = array();
     }
 
@@ -18,8 +20,7 @@ class Account {
         
         if(empty($this->errors))
         {
-            // Add user to database
-            return true;
+            return $this->insert_into_db($username, $firstname, $lastname, $email, $password);
         }
         else {
             return false;
@@ -35,6 +36,17 @@ class Account {
         else {
             return "";
         }
+    }
+
+    private function insert_into_db(string $username, string $firstname, string $lastname, string $email, string $password)
+    {
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $profilePhoto = "assets/images/profile_pics/default.png";
+        $date = date("Y-m-d");
+
+        $results = $this->connection->query("INSERT INTO users (username, firstname, lastname, email, password, registerDate, profilePhoto) VALUES ('$username', '$firstname', '$lastname', '$email', '$password', '$date', '$profilePhoto')");
+        
+        return $results;
     }
 
     private function validate_username($username): void
