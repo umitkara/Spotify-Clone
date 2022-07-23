@@ -112,6 +112,10 @@ body {
     color: #000000;
 }
 
+#loginForm> h2 {
+    font-size: 2em;
+}
+
 #registerForm {
     display: none;
 }
