@@ -42,7 +42,7 @@ class Account {
     {
         $password = password_hash($password, PASSWORD_DEFAULT);
         $profilePhoto = "assets/images/profile_pics/default.png";
-        $date = date("Y-m-d");
+        $date = date("Y-m-d h:i:sa");
 
         $results = $this->connection->query("INSERT INTO users (username, firstname, lastname, email, password, registerDate, profilePhoto) VALUES ('$username', '$firstname', '$lastname', '$email', '$password', '$date', '$profilePhoto')");
         
