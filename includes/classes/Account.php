@@ -38,6 +38,30 @@ class Account {
         }
     }
 
+    public function login(string $username, string $password)
+    {
+        $sql = "SELECT * FROM users WHERE username = '$username'";
+
+        $result = mysqli_query($this->connection, $sql);
+
+        if(mysqli_num_rows($result) == 0)
+        {
+            $this->errors["loginUsername"] = "Username not found";
+            return false;
+        }
+        else {
+            $user = mysqli_fetch_assoc($result);
+            if(password_verify($password, $user["password"]))
+            {
+                return true;
+            }
+            else {
+                $this->errors["loginPassword"] = "Password is incorrect";
+                return false;
+            }
+        }
+    }
+
     private function insert_into_db(string $username, string $firstname, string $lastname, string $email, string $password)
     {
         $password = password_hash($password, PASSWORD_DEFAULT);

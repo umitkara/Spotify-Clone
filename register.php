@@ -33,12 +33,14 @@ function get_input_value($name)
         <form id="loginForm" action="register.php" method="POST">
             <h2>Login to Spotify Clone</h2>
             <p>
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username" placeholder="Username" required>
+                <?php echo $account->get_error_span("loginUsername") ?>
+                <label for="loginUsername">Username:</label>
+                <input type="text" name="loginUsername" id="loginUsername" placeholder="Username" value="<?php get_input_value("loginUsername") ?>" required>
             </p>
             <p>
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password" placeholder="Password" required>
+                <?php echo $account->get_error_span("loginPassword") ?>
+                <label for="loginPassword">Password:</label>
+                <input type="password" name="loginPassword" id="loginPassword" placeholder="Password" required>
             </p>
             <p>
                 <input type="submit" value="Login" name="login">
