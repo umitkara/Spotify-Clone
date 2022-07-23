@@ -3,6 +3,11 @@
 include("includes/dbconfig.php");
 include("includes/config.php");
 
+if(isset($_SESSION['user_id']))
+{
+    header("Location: index.php");
+}
+
 include("includes/classes/Account.php");
 
 $account = new Account($connection);
