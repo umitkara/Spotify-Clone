@@ -7,6 +7,14 @@ $account = new Account();
 include("includes/handlers/register_handler.php");
 include("includes/handlers/login_handler.php");
 
+function get_input_value($name)
+{
+    if(isset($_POST[$name]))
+    {
+        echo $_POST[$name];
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,34 +50,34 @@ include("includes/handlers/login_handler.php");
             <p>
                 <?php echo $account->get_error_span("username") ?>
                 <label for="username">Username:</label>
-                <input type="text" name="username" id="username" placeholder="Username" required>
-            </p>
+                <input type="text" name="username" id="username" placeholder="Username" value="<?php get_input_value("username") ?>" required>
+            </?php>
             <p>
                 <?php echo $account->get_error_span("firstname") ?>
                 <label for="firstname">Firstname:</label>
-                <input type="text" name="firstname" id="firstname" placeholder="Firstname" required>
-            </p>
+                <input type="text" name="firstname" id="firstname" placeholder="Firstname" value="<?php get_input_value("firstname") ?>" required>
+            </?php>
             <p>
                 <?php echo $account->get_error_span("lastname") ?>
                 <label for="lastname">Lastname:</label>
-                <input type="text" name="lastname" id="lastname" placeholder="Lastname" required>
-            </p>
+                <input type="text" name="lastname" id="lastname" placeholder="Lastname" value="<?php get_input_value("lastname") ?>" required>
+            </?php>
             <p>
                 <?php echo $account->get_error_span("email") ?>
                 <label for="email">Email:</label>
-                <input type="email" name="email" id="email" placeholder="Email" required>
-            </p>
+                <input type="email" name="email" id="email" placeholder="Email" value="<?php get_input_value("email") ?>" required>
+            </?php>
             <p>
                 <?php echo $account->get_error_span("password2") ?>
                 <?php echo $account->get_error_span("password3") ?>
                 <label for="password">Password:</label>
-                <input type="password" name="password" id="password" placeholder="Password" required>
-            </p>
+                <input type="password" name="password" id="password" placeholder="Password" value="<?php get_input_value("password") ?>" required>
+            </?php>
             <p>
-            <?php echo $account->get_error_span("password1") ?>
+                <?php echo $account->get_error_span("password1") ?>
                 <label for="passwordConfirm">Confirm password:</label>
-                <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm password" required>
-            </p>
+                <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm password" value="<?php get_input_value("passwordConfirm") ?>" required>
+            </?php>
             <p>
                 <input type="submit" value="Register" name="register">
             </p>
