@@ -9,13 +9,18 @@
     } else {
         header("Location: index.php");
     }
-
-    $album_query = mysqli_query($connection, "SELECT * FROM albums WHERE id = $album_id");
-    $album = mysqli_fetch_assoc($album_query);
-    $artist = new Artist($connection, $album['artist']);
-    echo $album['title'];
-    echo $artist->get_name();
-    
+    $album = new Album($connection, $album_id);
 ?>
+
+<div class="entitiyInfo">
+    <div class="leftSection">
+        <img src="<?php echo $album->get_artwork_path(); ?>">
+    </div>
+    <div class="rightSection">
+        <h2><?php echo $album->get_title(); ?></h2>
+        <p>By <?php echo $album->get_artist()->get_name(); ?></p>
+        <p><?php echo $album->song_count(); ?> Songs</p>
+    </div>
+</div>
 
 <?php include("includes/footer.php") ?>
