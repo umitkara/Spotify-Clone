@@ -156,7 +156,7 @@ body {
     height: 100vh;
     top: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
 }
 
 .navBar {
@@ -293,4 +293,75 @@ body {
 .entitiyInfo p {
     color: #9f9f9f;
     font-weight: 300;
+}
+
+.trackList {
+    padding: 0;
+}
+
+.trackListRow {
+    height: 40px;
+    padding: 15px 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #a8a8a8;
+    flex-direction: row;
+}
+
+.trackListRow .trackCount {
+    width: 50px;
+    text-align: center;
+    font-size: 1em;
+    color: #9f9f9f;
+}
+
+.trackListRow .trackInfo {
+    width: calc(100% - 70px);
+    padding-left: 10px;
+    font-size: 1em;
+    color: #9f9f9f;
+    cursor: pointer;
+}
+
+.trackListRow .trackCount span[role="link"] {
+    visibility: hidden;
+    position: absolute;
+    cursor: pointer;
+}
+
+.trackListRow .trackCount span[role="link"]:hover {
+    color: #ffffff;
+}
+
+.trackListRow:hover .trackCount span[role="link"] {
+    visibility: visible;
+}
+
+.trackListRow .trackCount .trackNumber {
+    visibility: visible;
+}
+
+.trackListRow:hover .trackCount .trackNumber {
+    visibility: hidden;
+}
+
+.trackListRow .trackOptions {
+    width: 20px;
+    text-align: center;
+    font-size: 1em;
+    color: #9f9f9f;
+}
+
+.trackListRow .trackOptions span[role="link"] {
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.trackListRow:hover .trackOptions span[role="link"] {
+    visibility: visible;
+}
+
+.trackListRow .trackOptions span[role="link"]:hover {
+    color: #ffffff;
 }

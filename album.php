@@ -14,13 +14,43 @@
 
 <div class="entitiyInfo">
     <div class="leftSection">
-        <img src="<?php echo $album->get_artwork_path(); ?>">
+        <img src="<?php echo $album->get_artwork_path(); ?>" draggable="false">
     </div>
     <div class="rightSection">
         <h2><?php echo $album->get_title(); ?></h2>
         <p>By <?php echo $album->get_artist()->get_name(); ?></p>
         <p><?php echo $album->song_count(); ?> Songs</p>
     </div>
+</div>
+
+<div class="trackListContainer">
+    <ul class="trackList">
+        <?php
+            $songs_arr = $album->get_songs();
+            $i = 1;
+            foreach($songs_arr as $song_id) {
+                $song = new Song($connection, $song_id);
+                echo "<li class='trackListRow'>
+                        <div class='trackCount'>
+                            <span role='link' tabindex='0' class='fa-regular fa-play' onclick='setTrack(\"" . $song->get_id() . "\", tempPlaylist, true)'></span>
+                            <span class='trackNumber'>$i</span>
+                        </div>
+                        <div class='trackInfo' role='link' tabindex='0' onclick='setTrack(\"" . $song->get_id() . "\", tempPlaylist, true)'>
+                            <span class='trackName'>" . $song->get_title() . "</span>
+                            <span class='artistName'>" . $song->get_artist()->get_name() . "</span>
+                        </div>
+                        <div class='trackDuration'>
+                            <span class='duration'>" . $song->get_duration() . "</span>
+                        </div>
+                        <div class='trackOptions'>
+                            <input type='hidden' class='songId' value='" . $song->get_id() . "'>
+                            <span role='link' tabindex='0' class='fa-regular fa-ellipsis-v' onclick='showOptionsMenu(this)'></i>
+                        </div>
+                    </li>";
+                $i++;
+            }
+        ?>
+    </ul>
 </div>
 
 <?php include("includes/footer.php") ?>
