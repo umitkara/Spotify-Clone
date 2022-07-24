@@ -2,7 +2,7 @@
     <div class="nowPlayingLeft">
         <div class="content">
             <span class="albumLink">
-                <img id="albumArt" src="assets/images/album_default.jpg">
+                <img id="albumArt" src="assets/images/album_default.jpg" draggable="FALSE">
             </span>
             <div class="trackInfo">
                 <span class="trackName">

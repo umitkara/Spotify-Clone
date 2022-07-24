@@ -1,7 +1,7 @@
 <div class="navBarContainer">
     <div class="navBar">
         <a href="index.php">
-            <img src="assets/images/logo.svg" alt="Spotify Clone" class="logo">
+            <img src="assets/images/logo.svg" alt="Spotify Clone" class="logo" draggable="FALSE">
             Spotify Clone
         </a>
         <div class="group">
