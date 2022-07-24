@@ -27,7 +27,21 @@ else {
 <body>
     <div id="nowPlaying" class="nowPlayingContainer">
         <div id="nowPlayingBar" class="nowPlayingBar">
-            <div class="nowPlayingLeft"></div>
+            <div class="nowPlayingLeft">
+                <div class="content">
+                    <span class="albumLink">
+                        <img id="albumArt" src="assets/images/album_default.jpg">
+                    </span>
+                    <div class="trackInfo">
+                        <span class="trackName">
+                            <span>Track Name</span>
+                        </span>
+                        <span class="artistName">
+                            <span>Artist Name</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
             <div class="nowPlayingCenter">
                 <div class="content playerControls">
                     <div class="buttons">
