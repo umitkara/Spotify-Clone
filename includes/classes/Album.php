@@ -44,5 +44,15 @@
             $row = mysqli_fetch_assoc($query);
             return $row['count'];
         }
+
+        public function get_songs()
+        {
+            $query = mysqli_query($this->connection, "SELECT * FROM songs WHERE album = $this->id ORDER BY albumOrder ASC");
+            $songs = array();
+            while($row = mysqli_fetch_assoc($query)) {
+                array_push($songs, $row['id']);
+            }
+            return $songs;
+        }
     }
 ?>
