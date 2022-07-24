@@ -2,7 +2,6 @@
     <div class="pageHeader">
         You might be interested in...
     </div>
-    <script src="assets/js/main.js"></script>
     <div class="gridViewContainer">
         <?php 
             $album_query = mysqli_query($connection, "SELECT * FROM albums ORDER BY RAND() LIMIT 10");
