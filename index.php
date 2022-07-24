@@ -23,6 +23,7 @@ else {
     <title>Spotify Clone</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/fontawesome/css/all.css">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 </head>
 <body>
     <div id="nowPlaying" class="nowPlayingContainer">

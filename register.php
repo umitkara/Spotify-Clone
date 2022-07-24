@@ -34,6 +34,7 @@ function get_input_value($name)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Spotify Clone</title>
     <link rel="stylesheet" href="assets/css/register.css">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
