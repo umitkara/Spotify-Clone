@@ -49,3 +49,49 @@ html, body {
     color: #9f9f9f;
     font-size: 1.5em;
 }
+
+.controlButton:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+.controlButton.play, .controlButton.pause {
+    font-size: 2.25em;
+}
+
+.playbackBar {
+    display: flex;
+    margin-top: 10px;
+}
+
+.progressTime {
+    color: #9f9f9f;
+    font-size: 1em;
+    min-width: 40px;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.progressBar {
+    width: 100%;
+    height: 12px;
+    display: inline-flex;
+    cursor: pointer;
+    margin-top: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.progressBarBg {
+    background-color: #666666;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+}
+
+.progress {
+    background-color: #a8a8a8;
+    height: 4px;
+    width: 0px;
+    border-radius: 2px;
+}
