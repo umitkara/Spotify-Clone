@@ -20,7 +20,7 @@ else {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify</title>
+    <title>Spotify Clone</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/fontawesome/css/all.css">
 </head>
@@ -75,7 +75,18 @@ else {
                     </div>
                 </div>
             </div>
-            <div class="nowPlayingRight"></div>
+            <div class="nowPlayingRight">
+                <div class="volumeBar">
+                    <button class="controlButton volume" title="Volume">
+                        <i class="fa-regular fa-volume-up"></i>
+                    </button>
+                    <div class="progressBar">
+                        <div class="progressBarBg">
+                            <div class="progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
