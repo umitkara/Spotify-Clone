@@ -47,5 +47,9 @@
         public function get_path() {
             return $this->path;
         }
+
+        public function get_id() {
+            return $this->id;
+        }
     }
 ?>
