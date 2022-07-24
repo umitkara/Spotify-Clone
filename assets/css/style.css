@@ -2,11 +2,15 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
 }
 
 body {
     background-color: #1f1f1f;
     min-width: 720px;
+    margin: 0;
+    padding: 0;
 }
 
 .nowPlayingContainer {
@@ -217,4 +221,44 @@ body {
 
 .mainContent {
     padding: 0 20px;
+}
+
+.pageHeader {
+    padding: 20px 20px;
+    text-align: center;
+    margin: 0;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.gridViewItem {
+    display: inline-block;
+    margin-right: 20px;
+    width: 29%;
+    max-width: 200px;
+    min-width: 150px;
+}
+
+.gridViewItem img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.gridViewInfo {
+    text-align: center;
+    padding: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.gridViewItem> span[role="link"]:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.gridViewItem> span[role="link"]:hover> img {
+    opacity: 0.75;
+    transition: 0.3s;
 }
