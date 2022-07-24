@@ -4,6 +4,11 @@ html, body {
     padding: 0;
 }
 
+body {
+    background-color: #1f1f1f;
+    min-width: 720px;
+}
+
 .nowPlayingContainer {
     width: 100%;
     background-color: #282828;
@@ -147,6 +152,7 @@ html, body {
     height: 100vh;
     top: 0;
     left: 0;
+    position: absolute;
 }
 
 .navBar {
@@ -201,4 +207,14 @@ html, body {
 
 .navItem> a> i {
     margin-right: 10px;
+}
+
+.mainViewContainer {
+    margin-left: 300px;
+    padding-bottom: 120px;
+    width: calc(100% - 300px);
+}
+
+.mainContent {
+    padding: 0 20px;
 }
