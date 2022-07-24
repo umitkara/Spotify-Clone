@@ -262,3 +262,35 @@ body {
     opacity: 0.75;
     transition: 0.3s;
 }
+
+.entitiyInfo {
+    padding: 40px 0 10px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.entitiyInfo .leftSection {
+    width: 30%;
+    float: left;
+    max-width: 250px;
+}
+
+.entitiyInfo .leftSection> img {
+    width: 100%;
+}
+
+.entitiyInfo .rightSection {
+    width: 70%;
+    float: left;
+    padding: 5px 10px 5px 40px;
+    box-sizing: border-box;
+}
+.entitiyInfo h2 {
+    margin: 0;
+    font-size: 1.75em;
+}
+
+.entitiyInfo p {
+    color: #9f9f9f;
+    font-weight: 300;
+}
