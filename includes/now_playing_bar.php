@@ -19,7 +19,7 @@ $(document).ready(function() {
 function setTrack(track_id, new_playlist, play) {
     $.post("includes/handlers/ajax/get_song_json.php", { song_id: track_id }, function(data) {
         let track = JSON.parse(data);
-        audio_element.setTrack(track.path);
+        audio_element.setTrack(track);
         $(".trackName span").text(track.title);
         $.post("includes/handlers/ajax/get_artist_json.php", { artist_id: track.artist }, function(data) {
             let artist = JSON.parse(data);
@@ -38,6 +38,9 @@ function setTrack(track_id, new_playlist, play) {
 
 
 function play() {
+    if(audio_element.audio.currentTime == 0) {
+        $.post("includes/handlers/ajax/update_plays.php", { song_id: audio_element.current_playing.id });
+    }
     audio_element.play();
     $(".play").hide();
     $(".pause").show();
