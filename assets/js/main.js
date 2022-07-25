@@ -15,6 +15,9 @@ var user_logged_in;
 
 $(document).ready(function () {
     page_title = document.title;
+    $(window).on('popstate', function() {
+        open_page(location.pathname);
+    });
 });
 
 function open_page(url) {
@@ -23,6 +26,8 @@ function open_page(url) {
     }
     let encoded_url = encodeURI(url + "?user_logged_in=" + user_logged_in);
     $(".mainContent").load(encoded_url);
+    $("body").scrollTop(0);
+    history.pushState(null, null, url);
 }
 
 function time_format(secs) {
