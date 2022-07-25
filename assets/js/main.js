@@ -2,15 +2,16 @@ function openPage(page_url) {
     window.location.href = page_url;
 }
 
-let current_playlist = [];
-let shuffle_playlist = [];
-let temp_playlist = [];
-let audio_element;
-let mouse_down = false;
-let current_index = 0;
-let repeat = false;
-let shuffle = false;
-let page_title = "";
+var current_playlist = [];
+var shuffle_playlist = [];
+var temp_playlist = [];
+var audio_element;
+var mouse_down = false;
+var current_index = 0;
+var repeat = false;
+var shuffle = false;
+var page_title = "";
+var user_logged_in;
 
 $(document).ready(function () {
     page_title = document.title;
@@ -25,7 +26,7 @@ function update_volume_progress(audio) {
     $('.volumeBar .progress').css('width', audio.volume * 100 + '%');
 }
 
-class AudioElm {
+class Audio {
 
     constructor(src) {
         this.current_playing = null;
