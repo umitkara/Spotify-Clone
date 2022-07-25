@@ -14,7 +14,25 @@ $(document).ready(function() {
     current_playlist = JSON.parse('<?php echo $json; ?>');
     audio_element = new AudioElm();
     setTrack(current_playlist[0], current_playlist, false);
+    $(".playbackBar .progressBar").mousedown(function() {
+        mouseDown = true;
+    });
+    $(".playbackBar .progressBar").mouseup(function() {
+        timeFromOffset(event, this);
+        mouseDown = false;
+    });
+    $(".playbackBar .progressBar").mousemove(function(event) {
+        if(mouseDown) {
+            timeFromOffset(event, this);
+        }
+    });
 });
+
+function timeFromOffset(mouse, progressBar) {
+    var percentage = (mouse.offsetX / $(progressBar).width()) * 100;
+    var seconds = audio_element.audio.duration * (percentage / 100);
+    audio_element.setTime(seconds);
+}
 
 function setTrack(track_id, new_playlist, play) {
     $.post("includes/handlers/ajax/get_song_json.php", { song_id: track_id }, function(data) {

@@ -3,7 +3,8 @@ function openPage(page_url) {
 }
 
 let current_playlist = [];
-var audio_element;
+let audio_element;
+let mouse_down = false;
 
 function time_format(secs) {
     // return mm:ss format
@@ -23,7 +24,7 @@ class AudioElm {
         
         this.audio.addEventListener('timeupdate', () => {
             $('.progressTime.current').text(time_format(this.audio.currentTime));
-            $('.progressBar .progress').css('width', (this.audio.currentTime / this.audio.duration) * 100 + '%');
+            $('.playbackBar .progress').css('width', (this.audio.currentTime / this.audio.duration) * 100 + '%');
         });
     }
 
@@ -38,5 +39,9 @@ class AudioElm {
 
     pause() {
         this.audio.pause();
+    }
+
+    setTime(time) {
+        this.audio.currentTime = time;
     }
 }
