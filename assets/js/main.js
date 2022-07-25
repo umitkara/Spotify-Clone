@@ -10,6 +10,11 @@ let mouse_down = false;
 let current_index = 0;
 let repeat = false;
 let shuffle = false;
+let page_title = "";
+
+$(document).ready(function () {
+    page_title = document.title;
+});
 
 function time_format(secs) {
     // return mm:ss format
@@ -54,6 +59,7 @@ class AudioElm {
         this.audio.addEventListener('pause', () => {
             $(".play").show();
             $(".pause").hide();
+            document.title = page_title;
         }
         , false);
     }
@@ -65,10 +71,12 @@ class AudioElm {
 
     play() {
         this.audio.play();
+        document.title = this.current_playing.title + " | " + page_title;
     }
 
     pause() {
         this.audio.pause();
+        document.title = page_title;
     }
 
     setTime(time) {
