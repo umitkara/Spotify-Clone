@@ -14,5 +14,15 @@
             $artist = mysqli_fetch_assoc($artist_query);
             return $artist['name'];
         }
+
+        public function get_number_of_albums() {
+            $album_query = mysqli_query($this->connection, "SELECT * FROM albums WHERE artist = $this->id");
+            return mysqli_num_rows($album_query);
+        }
+
+        public function get_number_of_songs() {
+            $song_query = mysqli_query($this->connection, "SELECT * FROM songs WHERE artist = $this->id");
+            return mysqli_num_rows($song_query);
+        }
     }
 ?>
