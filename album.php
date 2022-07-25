@@ -1,6 +1,6 @@
-<?php include("includes/header.php") ?>
-
 <?php
+    include("includes/include_files.php");
+    
     if(isset($_GET['id'])) {
         $album_id = $_GET['id'];
         if(!is_numeric($album_id)) {
@@ -65,6 +65,4 @@
     $(".playAlbum").click(function() {
         setTrack(temp_playlist[0], temp_playlist, true);
     });
-</script>
-
-<?php include("includes/footer.php") ?>
+</script>   
