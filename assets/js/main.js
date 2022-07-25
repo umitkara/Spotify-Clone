@@ -17,6 +17,15 @@ $(document).ready(function () {
     page_title = document.title;
 });
 
+function open_page(url) {
+    if (url.indexOf("?") > 0) {
+        url += "&";
+    }
+    let encoded_url = encodeURI(url + "?user_logged_in=" + user_logged_in);
+    $(".mainContent").load(encoded_url);
+    console.log(encoded_url);
+}
+
 function time_format(secs) {
     // return mm:ss format
     return Math.floor(secs / 60) + ":" + (secs % 60 < 10 ? "0" : "") + Math.floor(secs % 60);
