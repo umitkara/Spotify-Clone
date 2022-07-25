@@ -10,7 +10,7 @@ include("includes/include_files.php");
 
             while($row = mysqli_fetch_array($album_query)) {
                 echo "<div class='gridViewItem'>
-                        <span role='link' tabindex='0' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
+                        <span role='link' tabindex='0' onclick='open_page(\"album.php?id=" . $row['id'] . "\")'>
                             <img src='" . $row['albumArt'] . "'>
                             <div class='gridViewInfo'>"
                                 . $row['title'] .
@@ -21,4 +21,3 @@ include("includes/include_files.php");
 
         ?>
     </div>
-<?php include("includes/footer.php") ?>
