@@ -4,6 +4,7 @@ function openPage(page_url) {
 
 let current_playlist = [];
 let shuffle_playlist = [];
+let temp_playlist = [];
 let audio_element;
 let mouse_down = false;
 let current_index = 0;

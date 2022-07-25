@@ -32,10 +32,10 @@
                 $song = new Song($connection, $song_id);
                 echo "<li class='trackListRow'>
                         <div class='trackCount'>
-                            <span role='link' tabindex='0' class='fa-regular fa-play' onclick='setTrack(\"" . $song->get_id() . "\", tempPlaylist, true)'></span>
+                            <span role='link' tabindex='0' class='fa-regular fa-play' onclick='setTrack(\"" . $song->get_id() . "\", temp_playlist, true)'></span>
                             <span class='trackNumber'>$i</span>
                         </div>
-                        <div class='trackInfo' role='link' tabindex='0' onclick='setTrack(\"" . $song->get_id() . "\", tempPlaylist, true)'>
+                        <div class='trackInfo' role='link' tabindex='0' onclick='setTrack(\"" . $song->get_id() . "\", temp_playlist, true)'>
                             <span class='trackName'>" . $song->get_title() . "</span>
                             <span class='artistName'>" . $song->get_artist()->get_name() . "</span>
                         </div>
@@ -52,5 +52,9 @@
         ?>
     </ul>
 </div>
+
+<script>
+    temp_playlist = <?php echo json_encode($songs_arr); ?>;
+</script>
 
 <?php include("includes/footer.php") ?>
