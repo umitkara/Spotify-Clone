@@ -1,6 +1,4 @@
-<?php 
-include("includes/include_files.php");
-?>
+<?php include("includes/include_files.php"); ?>
     <div class="pageHeader">
         You might be interested in...
     </div>
