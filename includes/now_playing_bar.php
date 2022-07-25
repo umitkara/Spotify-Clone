@@ -41,6 +41,9 @@ $(document).ready(function() {
         }
         mouse_down = false;
     });
+    $(document).mouseup(function() {
+        mouse_down = false;
+    });
     $(".volumeBar .progressBar").mousemove(function(event) {
         if(mouse_down) {
             let percentage = event.offsetX / $(this).width();
@@ -146,6 +149,16 @@ function set_repeat() {
         $(".controlButton.repeat").removeClass("media-playback-active");
     }
 }
+
+function set_mute() {
+    audio_element.audio.muted = !audio_element.audio.muted;
+    if(audio_element.audio.muted) {
+        $(".controlButton.volume").html('<i class="fa-regular fa-volume-mute"></i>');
+    }
+    else {
+        $(".controlButton.volume").html('<i class="fa-regular fa-volume-up"></i>');
+    }
+}
 </script>
 
 <div id="nowPlayingBar" class="nowPlayingBar">
@@ -199,7 +212,7 @@ function set_repeat() {
     </div>
     <div class="nowPlayingRight">
         <div class="volumeBar">
-            <button class="controlButton volume" title="Volume">
+            <button class="controlButton volume" title="Volume" onclick="set_mute()">
                 <i class="fa-regular fa-volume-up"></i>
             </button>
             <div class="progressBar">
