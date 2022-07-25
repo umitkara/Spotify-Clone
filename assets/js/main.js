@@ -44,6 +44,17 @@ class AudioElm {
         this.audio.addEventListener('ended', () => {
             next();
         });
+
+        this.audio.addEventListener('play', () => {
+            $(".play").hide();
+            $(".pause").show();
+        });
+
+        this.audio.addEventListener('pause', () => {
+            $(".play").show();
+            $(".pause").hide();
+        }
+        , false);
     }
 
     setTrack(track) {
