@@ -399,3 +399,32 @@ body {
 .media-playback-active {
     color: #1DB954;;
 }
+
+.artistInfo {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 500px;
+    position: relative;
+}
+
+.artistInfo h1 {
+    font-size: 3em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.artistInfo p {
+    color: #ffffff;
+}
+
+.artistInfo .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
