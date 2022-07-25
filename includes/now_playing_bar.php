@@ -13,7 +13,12 @@ $json = json_encode($result_arr);
 $(document).ready(function() {
     current_playlist = JSON.parse('<?php echo $json; ?>');
     audio_element = new AudioElm();
+    // Temp
     setTrack(current_playlist[0], current_playlist, false);
+    //
+    $("#nowPlayingBar").on("mousedown touchstart mousemove touchmove", function(e) {
+        e.preventDefault();
+    });
     $(".playbackBar .progressBar").mousedown(function() {
         mouseDown = true;
     });
@@ -26,11 +31,29 @@ $(document).ready(function() {
             timeFromOffset(event, this);
         }
     });
+    $(".volumeBar .progressBar").mousedown(function() {
+        mouseDown = true;
+    });
+    $(".volumeBar .progressBar").mouseup(function() {
+        let percentage = event.offsetX / $(this).width();
+        if(percentage >= 0 && percentage <= 1) {
+            audio_element.audio.volume = percentage;
+        }
+        mouseDown = false;
+    });
+    $(".volumeBar .progressBar").mousemove(function(event) {
+        if(mouseDown) {
+            let percentage = event.offsetX / $(this).width();
+            if(percentage >= 0 && percentage <= 1) {
+                audio_element.audio.volume = percentage;
+            }
+        }
+    });
 });
 
 function timeFromOffset(mouse, progressBar) {
-    var percentage = (mouse.offsetX / $(progressBar).width()) * 100;
-    var seconds = audio_element.audio.duration * (percentage / 100);
+    let percentage = (mouse.offsetX / $(progressBar).width()) * 100;
+    let seconds = audio_element.audio.duration * (percentage / 100);
     audio_element.setTime(seconds);
 }
 
