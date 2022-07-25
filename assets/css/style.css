@@ -365,3 +365,7 @@ body {
 .trackListRow .trackOptions span[role="link"]:hover {
     color: #ffffff;
 }
+
+.media-playback-active {
+    color: #1DB954;;
+}

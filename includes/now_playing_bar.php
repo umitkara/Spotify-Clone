@@ -94,6 +94,12 @@ function pause() {
 }
 
 function next() {
+    if(repeat == true)
+    {
+        audio_element.setTime(0);
+        audio_element.play();
+        return
+    }
     if(current_index == current_playlist.length-1)
     {
         current_index = 0;
@@ -115,6 +121,17 @@ function previous() {
     }
     let track = current_playlist[current_index];
     setTrack(track, current_playlist, true);
+}
+
+function set_repeat() {
+    repeat = !repeat;
+    if(repeat)
+    {
+        $(".controlButton.repeat").addClass("media-playback-active");
+    }
+    else {
+        $(".controlButton.repeat").removeClass("media-playback-active");
+    }
 }
 </script>
 
@@ -152,7 +169,7 @@ function previous() {
                 <button class="controlButton next" title="Next" onclick="next()">
                     <i class="fa-regular fa-step-forward"></i>
                 </button>
-                <button class="controlButton repeat" title="Repeat">
+                <button class="controlButton repeat" title="Repeat" onclick="set_repeat()">
                     <i class="fa-regular fa-repeat"></i>
                 </button>
             </div>
