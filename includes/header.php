@@ -26,7 +26,7 @@ else {
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/fontawesome/css/all.css">
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="assets/js/jquery.min.js"></script> 
     <script src="assets/js/main.js"></script>
 </head>
 <body>
