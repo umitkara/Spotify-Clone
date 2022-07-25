@@ -14,7 +14,14 @@
 
 <div class="entitiyInfo">
     <div class="leftSection">
-        <img src="<?php echo $album->get_artwork_path(); ?>" draggable="false">
+        <div class="playAlbum">
+            <img src="<?php echo $album->get_artwork_path(); ?>" draggable="false">
+            <div class="playAlbumOverlay">
+                <div class="playAlbumButton">
+                    <i class="fa-regular fa-play"></i>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="rightSection">
         <h2><?php echo $album->get_title(); ?></h2>
@@ -55,6 +62,9 @@
 
 <script>
     temp_playlist = <?php echo json_encode($songs_arr); ?>;
+    $(".playAlbum").click(function() {
+        setTrack(temp_playlist[0], temp_playlist, true);
+    });
 </script>
 
 <?php include("includes/footer.php") ?>
