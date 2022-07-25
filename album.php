@@ -4,10 +4,12 @@
     if(isset($_GET['id'])) {
         $album_id = $_GET['id'];
         if(!is_numeric($album_id)) {
-            header("Location: index.php");
+            echo "<script>open_page('index.php');</script>";
+            //header("Location: index.php");
         }
     } else {
-        header("Location: index.php");
+        echo "<script>open_page('index.php');</script>";
+        //header("Location: index.php");
     }
     $album = new Album($connection, $album_id);
 ?>
