@@ -12,7 +12,7 @@ $json = json_encode($result_arr);
 <script>
 $(document).ready(function() {
     let new_playlist = JSON.parse('<?php echo $json; ?>');
-    audio_element = new AudioElm();
+    audio_element = new Audio();
     setTrack(new_playlist[0], new_playlist, false);
 
     // Temp
