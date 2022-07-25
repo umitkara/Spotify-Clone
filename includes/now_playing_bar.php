@@ -13,17 +13,22 @@ $json = json_encode($result_arr);
 $(document).ready(function() {
     current_playlist = JSON.parse('<?php echo $json; ?>');
     audio_element = new AudioElm();
-    setTrack(current_playlist[0], current_playlist, true);
+    setTrack(current_playlist[0], current_playlist, false);
 });
 
 function setTrack(track_id, new_playlist, play) {
     $.post("includes/handlers/ajax/get_song_json.php", { song_id: track_id }, function(data) {
-        console.log(data);
-        /*var track = JSON.parse(data);
-        audio_element.set_track(track);
-        if(play) {
-            audio_element.play();
-        }*/
+        let track = JSON.parse(data);
+        audio_element.setTrack(track.path);
+        $(".trackName span").text(track.title);
+        $.post("includes/handlers/ajax/get_artist_json.php", { artist_id: track.artist }, function(data) {
+            let artist = JSON.parse(data);
+            $(".artistName span").text(artist.name);
+        });
+        $.post("includes/handlers/ajax/get_album_json.php", { album_id: track.album }, function(data) {
+            let album = JSON.parse(data);
+            $(".albumLink img").attr("src", album.albumArt);
+        });
     });
     if(play) {
         audio_element.play();
