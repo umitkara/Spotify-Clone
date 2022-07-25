@@ -3,10 +3,12 @@ function openPage(page_url) {
 }
 
 let current_playlist = [];
+let shuffle_playlist = [];
 let audio_element;
 let mouse_down = false;
 let current_index = 0;
 let repeat = false;
+let shuffle = false;
 
 function time_format(secs) {
     // return mm:ss format

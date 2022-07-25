@@ -11,8 +11,10 @@ $json = json_encode($result_arr);
 
 <script>
 $(document).ready(function() {
-    current_playlist = JSON.parse('<?php echo $json; ?>');
+    let new_playlist = JSON.parse('<?php echo $json; ?>');
     audio_element = new AudioElm();
+    setTrack(new_playlist[0], new_playlist, false);
+
     // Temp
     setTrack(current_playlist[0], current_playlist, false);
     //
@@ -75,10 +77,25 @@ function timeFromOffset(mouse, progressBar) {
 }
 
 function setTrack(track_id, new_playlist, is_play) {
+
+    if(new_playlist != current_playlist)
+    {
+        current_playlist = new_playlist;
+        shuffle_playlist = current_playlist.slice();
+        shuffle_array(shuffle_playlist);
+    }
+
+    if (shuffle) {
+        current_index = shuffle_playlist.indexOf(track_id);
+    } else {
+        current_index = current_playlist.indexOf(track_id);
+    }
+
+
     $.post("includes/handlers/ajax/get_song_json.php", { song_id: track_id }, function(data) {
         let track = JSON.parse(data);
         audio_element.setTrack(track);
-        current_index = current_playlist.indexOf(track_id);
+        // current_index = current_playlist.indexOf(track_id);
         $(".trackName span").text(track.title);
         $.post("includes/handlers/ajax/get_artist_json.php", { artist_id: track.artist }, function(data) {
             let artist = JSON.parse(data);
@@ -123,7 +140,7 @@ function next() {
     else {
         current_index++;
     }
-    let track = current_playlist[current_index];
+    let track = shuffle ? shuffle_playlist[current_index] : current_playlist[current_index];
     setTrack(track, current_playlist, true);
 }
 
@@ -159,6 +176,31 @@ function set_mute() {
         $(".controlButton.volume").html('<i class="fa-regular fa-volume-up"></i>');
     }
 }
+
+function set_shuffle() {
+    shuffle = !shuffle;
+    if(shuffle) {
+        $(".controlButton.shuffle").addClass("media-playback-active");
+        shuffle_array(shuffle_playlist);
+        current_index = shuffle_playlist.indexOf(audio_element.current_playing.id);
+
+    }
+    else {
+        $(".controlButton.shuffle").removeClass("media-playback-active");
+        current_index = current_playlist.indexOf(audio_element.current_playing.id);
+    }
+}
+
+function shuffle_array(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
 </script>
 
 <div id="nowPlayingBar" class="nowPlayingBar">
@@ -180,7 +222,7 @@ function set_mute() {
     <div class="nowPlayingCenter">
         <div class="content playerControls">
             <div class="buttons">
-                <button class="controlButton shuffle" title="Shuffle">
+                <button class="controlButton shuffle" title="Shuffle" onclick="set_shuffle()">
                     <i class="fa-regular fa-shuffle"></i>
                 </button>
                 <button class="controlButton previous" title="Previous" onclick="previous()">
