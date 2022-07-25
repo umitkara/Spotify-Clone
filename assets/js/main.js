@@ -38,6 +38,10 @@ class AudioElm {
             update_volume_progress(this.audio);
         }
         , false);
+
+        this.audio.addEventListener('ended', () => {
+            next();
+        });
     }
 
     setTrack(track) {
