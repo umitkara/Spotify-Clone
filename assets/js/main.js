@@ -14,7 +14,8 @@ class AudioElm {
     }
 
     setTrack(track) {
-        this.audio.src = track;
+        this.current_playing = track;
+        this.audio.src = track.path;
     }
 
     play() {
