@@ -23,7 +23,6 @@ function open_page(url) {
     }
     let encoded_url = encodeURI(url + "?user_logged_in=" + user_logged_in);
     $(".mainContent").load(encoded_url);
-    console.log(encoded_url);
 }
 
 function time_format(secs) {
