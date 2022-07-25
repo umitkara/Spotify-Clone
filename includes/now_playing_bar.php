@@ -135,7 +135,9 @@ function next() {
     }
     if(current_index == current_playlist.length-1)
     {
-        current_index = 0;
+        // End of playlist. Maybe repeat the playlist function could be implemented later.
+        return
+        // current_index = 0;
     }
     else {
         current_index++;
