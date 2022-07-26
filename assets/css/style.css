@@ -525,3 +525,41 @@ body {
 .buttonContainer {
     text-align: center;
 }
+
+.playlistItem {
+    padding: 10px;
+    min-width: 180px;
+}
+
+.playlistItem:hover {
+    background-color: #282828;
+}
+
+.playlistItem .playlistName {
+    font-size: 1.25em;
+    font-weight: 500;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.playlistItem .playlistThumb,
+.playlistItem .playlistName {
+    cursor: pointer;
+}
+
+.buttonSmall {
+    cursor: pointer;
+    min-width: 87px !important;
+}
+
+.button.red {
+    background-color: #be2216;
+    border-color: #be2216;
+}
+
+.button.red:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #1f1f1f;
+}
