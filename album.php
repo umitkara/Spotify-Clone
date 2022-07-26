@@ -27,7 +27,12 @@
     </div>
     <div class="rightSection">
         <h2><?php echo $album->get_title(); ?></h2>
-        <p>By <?php echo $album->get_artist()->get_name(); ?></p>
+        <p>
+            By 
+            <span role="link" tabindex="0" onclick="open_page('artist.php?id=<?php echo $album->get_artist_id(); ?>')">
+                <?php echo $album->get_artist()->get_name(); ?>
+            </span>
+        </p>
         <p><?php echo $album->song_count(); ?> Songs</p>
     </div>
 </div>
