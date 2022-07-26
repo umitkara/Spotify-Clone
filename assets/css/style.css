@@ -428,3 +428,34 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.button {
+    color: #ffffff;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: transparent;
+    font-weight: 500;
+    letter-spacing: 2px;
+    border: 2px solid #ffffff;
+    border-radius: 500px;
+    padding: 15px;
+    min-width: 130px;
+}
+
+.button.green {
+    background-color: #1DB954;
+    border-color: #1DB954;
+}
+
+.button.green:hover {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #1f1f1f;
+}
+
+.gridViewContainer h2,
+.trackListContainer h2 {
+    font-size: 1.75em;
+    font-weight: 600;
+    text-align: center;
+}
