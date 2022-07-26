@@ -596,8 +596,8 @@ body {
 .optionsMenu {
     position: fixed;
     background-color: #282828;
-    width: 200px;
-    min-width: 200px;
+    width: 220px;
+    min-width: 220px;
     border: 1px solid #9f9f9f;
     border-radius: 3px;
     z-index: 100;
