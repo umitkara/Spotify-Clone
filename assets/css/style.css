@@ -517,3 +517,11 @@ body {
 .searchResultRow:hover {
     background-color: #282828;
 }
+
+.playlistContainer {
+    padding: 10px 0;
+}
+
+.buttonContainer {
+    text-align: center;
+}
