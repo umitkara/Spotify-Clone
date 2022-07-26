@@ -12,6 +12,7 @@ var repeat = false;
 var shuffle = false;
 var page_title = "";
 var user_logged_in;
+var timer;
 
 $(document).ready(function () {
     page_title = document.title;
@@ -21,6 +22,9 @@ $(document).ready(function () {
 });
 
 function open_page(url) {
+    if (timer != null) {
+        clearTimeout(timer);
+    }
     if (url.indexOf("?") > 0) {
         url += "&";
     }
