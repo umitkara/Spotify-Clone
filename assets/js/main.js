@@ -97,6 +97,10 @@ function hide_options_menu() {
     $(".optionsMenu").hide();
 }
 
+function play_from_menu() {
+    setTrack($(".menuSongId").val(), temp_playlist, true);
+}
+
 class Audio {
 
     constructor(src) {
