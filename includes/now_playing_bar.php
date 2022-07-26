@@ -100,10 +100,13 @@ function setTrack(track_id, new_playlist, is_play) {
         $.post("includes/handlers/ajax/get_artist_json.php", { artist_id: track.artist }, function(data) {
             let artist = JSON.parse(data);
             $(".artistName span").text(artist.name);
+            $(".artistName span").attr("onclick", "open_page('artist.php?id=" + artist.id + "')");
         });
         $.post("includes/handlers/ajax/get_album_json.php", { album_id: track.album }, function(data) {
             let album = JSON.parse(data);
             $(".albumLink img").attr("src", album.albumArt);
+            $(".albumLink img").attr("onclick", "open_page('album.php?id=" + album.id + "')");
+            $(".trackName span").attr("onclick", "open_page('album.php?id=" + album.id + "')");
         });
         if(is_play == true) {
             audio_element.play();
