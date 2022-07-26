@@ -76,6 +76,18 @@ function timeFromOffset(mouse, progressBar) {
     audio_element.setTime(seconds);
 }
 
+function play_playlist(playlist_id) {
+    $.post("includes/handlers/ajax/get_playlist_songs.php", {playlist_id: playlist_id}).done(function(song_json) {
+        current_playlist = JSON.parse(song_json);
+        if(current_playlist.length == 0)
+        {
+            return;
+        }
+        current_index = 0;
+        setTrack(current_playlist[current_index], current_playlist, true);
+    });
+}
+
 function setTrack(track_id, new_playlist, is_play) {
 
     if(new_playlist != current_playlist)
