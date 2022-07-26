@@ -374,6 +374,10 @@ body {
     color: #ffffff;
 }
 
+.trackListRow:hover {
+    background-color: #282828;
+}
+
 .trackListRow:hover .trackCount span[role="link"] {
     visibility: visible;
 }
@@ -464,7 +468,8 @@ body {
 }
 
 .gridViewContainer h2,
-.trackListContainer h2 {
+.trackListContainer h2,
+.artistContainer h2 {
     font-size: 1.75em;
     font-weight: 600;
     text-align: center;
@@ -472,6 +477,43 @@ body {
 
 .albumLink img,
 .artistName span,
-.trackName span {
+.trackName span,
+.searchArtistName span {
     cursor: pointer;
+}
+
+.searchContainer {
+    padding: 20px 20px;
+    background-color: #282828;
+}
+
+.searchContainer h4 {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+}
+
+.searchContainer .searchInput {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 3em; 
+    letter-spacing: 3px;   
+    border-bottom: 2px solid #9f9f9f;
+}   
+
+.searchResultRow {
+    padding: 15px 10px;
+    border-bottom: 1px solid #a8a8a8;
+}
+
+.searchResultRow span {
+    width: 100%;
+    display: inline-block;
+}
+
+.searchResultRow:hover {
+    background-color: #282828;
 }
