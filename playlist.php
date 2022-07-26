@@ -66,13 +66,7 @@
                         </div>
                         <div class='trackOptions'>
                             <input type='hidden' class='songId' value='" . $song->get_id() . "'>
-                            <i class='fa-regular fa-ellipsis-h'></i>
-                            <div class='trackDropdown'>
-                                <div class='trackDropdownItem'>Play</div>
-                                <div class='trackDropdownItem'>Add to Playlist</div>
-                                <div class='trackDropdownItem'>Add to Queue</div>
-                                <div class='trackDropdownItem'>Delete from Playlist</div>
-                            </div>
+                            <span id='optionsButton' role='link' tabindex='0' class='fa-regular fa-ellipsis-v' onclick='show_options_menu(this)'></span>
                         </div>
                     </li>";
                 $i++;
@@ -80,6 +74,18 @@
         ?>
     </ul>
 </div>
+
+<nav class="optionsMenu">
+    <input type="hidden" class="menuSongId">
+    <div class="option" onclick="play_from_menu()">
+        <i class="fa-regular fa-play-circle"></i>
+        Play
+    </div>
+    <div class="option">
+        <i class="fa-regular fa-minus-circle"></i>
+        Remove from playlist
+    </div>
+</nav>
 
 <script>
     temp_playlist = <?php echo json_encode($songs_arr); ?>;
