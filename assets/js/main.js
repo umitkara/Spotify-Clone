@@ -21,6 +21,17 @@ $(document).ready(function () {
     });
 });
 
+$(document).click(function (e) {
+    let target = $(e.target);
+    if(!target.hasClass("option") && e.target.id !== "optionsButton") {
+        hide_options_menu();
+    }
+});
+
+$(window).scroll(function() {
+    hide_options_menu();
+});
+
 function open_page(url) {
     if (timer != null) {
         clearTimeout(timer);
@@ -69,6 +80,21 @@ function delete_playlist(playlist_id) {
             open_page("your_music.php");
         });
     }
+}
+
+function show_options_menu(element) {
+    let menu = $(".optionsMenu")
+    let menu_width = menu.width();
+    let scroll_top = $(window).scrollTop();
+    let element_offset = $(element).offset().top;
+    let top = element_offset - scroll_top;
+    let left = $(element).offset().left;
+    menu.css({'top': top + "px", 'left': left - menu_width + "px", 'display': "inline"});
+    $(".menuSongId").val($(element).siblings(".songId").val());
+}
+
+function hide_options_menu() {
+    $(".optionsMenu").hide();
 }
 
 class Audio {
