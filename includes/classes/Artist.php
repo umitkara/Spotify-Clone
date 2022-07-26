@@ -24,5 +24,15 @@
             $song_query = mysqli_query($this->connection, "SELECT * FROM songs WHERE artist = $this->id");
             return mysqli_num_rows($song_query);
         }
+
+        public function get_pupular_songs()
+        {
+            $query = mysqli_query($this->connection, "SELECT * FROM songs WHERE artist = $this->id ORDER BY plays DESC LIMIT 5");
+            $songs = array();
+            while($row = mysqli_fetch_assoc($query)) {
+                array_push($songs, $row['id']);
+            }
+            return $songs;
+        }
     }
 ?>
