@@ -315,6 +315,16 @@ body {
     padding: 5px 10px 5px 40px;
     box-sizing: border-box;
 }
+
+.rightSection> p> span {
+    cursor: pointer;
+}
+
+.rightSection> p> span:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
 .entitiyInfo h2 {
     margin: 0;
     font-size: 1.75em;
@@ -458,4 +468,10 @@ body {
     font-size: 1.75em;
     font-weight: 600;
     text-align: center;
+}
+
+.albumLink img,
+.artistName span,
+.trackName span {
+    cursor: pointer;
 }
