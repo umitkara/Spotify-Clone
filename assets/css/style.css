@@ -592,3 +592,30 @@ body {
 .playlistItem .playlistName {
     cursor: pointer;
 }
+
+.optionsMenu {
+    position: fixed;
+    background-color: #282828;
+    width: 200px;
+    min-width: 200px;
+    border: 1px solid #9f9f9f;
+    border-radius: 3px;
+    z-index: 100;
+    display: none;
+}
+
+.optionsMenu .option {
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    font-weight: 400;
+    color: #9f9f9f;
+    cursor: pointer;
+    height: 40px;
+}
+
+.optionsMenu .option:hover {
+    background-color: #1b1b1b;
+    color: #ffffff;
+    border-color: #1b1b1b;
+}
