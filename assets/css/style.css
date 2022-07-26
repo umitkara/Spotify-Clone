@@ -284,12 +284,12 @@ body {
     width: 100%;
 }
 
-.playAlbum {
+.playAlbum, .playPlaylist {
     position: relative;
     display: block;
 }
 
-.playAlbumOverlay {
+.playAlbumOverlay, .playPlaylistOverlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -304,7 +304,7 @@ body {
     transition: 0.3s;
 }
 
-.playAlbumOverlay:hover {
+.playAlbumOverlay:hover, .playPlaylistOverlay:hover {
     cursor: pointer;
     opacity: 1;
 }
@@ -459,9 +459,16 @@ body {
 .button.green {
     background-color: #1DB954;
     border-color: #1DB954;
+    transition: 0.3s;
 }
 
-.button.green:hover {
+.button.red {
+    background-color: #bb1818;
+    border-color: #bb1818;
+    transition: 0.3s;
+}
+
+.button.green:hover, .button.red:hover {
     background-color: #ffffff;
     border-color: #ffffff;
     color: #1f1f1f;
