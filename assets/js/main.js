@@ -58,6 +58,19 @@ function create_playlist() {
     }
 }
 
+function delete_playlist(playlist_id) {
+    let cfr = confirm("Are you sure you want to delete this playlist?");
+    if(cfr) {
+        $.post("includes/handlers/ajax/delete_playlist.php", {username: user_logged_in, playlist_id: playlist_id}).done(function(error) {
+            if(error != 1) {
+                alert(error);
+                return;
+            }
+            open_page("your_music.php");
+        });
+    }
+}
+
 class Audio {
 
     constructor(src) {
