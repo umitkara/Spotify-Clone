@@ -535,6 +535,44 @@ body {
     background-color: #282828;
 }
 
+.playlistThumb {
+    position: relative;
+}
+
+.playlistThumb:hover .playlistItemControls
+{
+    opacity: 1;
+}
+
+.playlistItemControls {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.buttonSmall {
+    min-width: 50px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: transparent;
+    font-weight: 500;
+    letter-spacing: 2px;
+    border: 2px solid #1DB954;
+    background-color: #1DB954;
+    border-radius: 500px;
+    padding: 15px;
+    margin: 10px 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.buttonSmall:hover {
+    /* Get bigger */
+    transform: scale(1.1);
+}
+
 .playlistItem .playlistName {
     font-size: 1.25em;
     font-weight: 500;
@@ -546,20 +584,4 @@ body {
 .playlistItem .playlistThumb,
 .playlistItem .playlistName {
     cursor: pointer;
-}
-
-.buttonSmall {
-    cursor: pointer;
-    min-width: 87px !important;
-}
-
-.button.red {
-    background-color: #be2216;
-    border-color: #be2216;
-}
-
-.button.red:hover {
-    background-color: #ffffff;
-    border-color: #ffffff;
-    color: #1f1f1f;
 }

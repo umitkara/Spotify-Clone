@@ -25,20 +25,19 @@ include("includes/include_files.php");
                 $playlist_name = $row['name'];
                 echo "<div class='gridViewItem'>
                         <div class='playlistItem'>
-                            <div class='playlistThumb' role='link' tab-index='0' onclick='open_page(\"playlist.php?id=$playlist_id\")'>
-                                <img src='assets\images\album_default.jpg' draggable='false'>
-                            </div>
+                            <div class='playlistThumb'>
+                                <div role='link' tab-index='0' onclick='open_page(\"playlist.php?id=$playlist_id\")'>
+                                    <img src='assets\images\album_default.jpg' draggable='false'>
+                                </div>
+                                <div class='playlistItemControls'>
+                                    <input type='hidden' class='playlistId' value='$playlist_id'>
+                                    <button class='buttonSmall' onclick='play_playlist($playlist_id)'>
+                                        <i class='fa-regular fa-chevron-right'></i>
+                                    </button>
+                                </div>
+                                </div>
                             <div class='playlistName' role='link' tab-index='0' onclick='open_page(\"playlist.php?id=$playlist_id\")'>
                                 $playlist_name
-                            </div>
-                            <div class='playlistItemControls'>
-                                <input type='hidden' class='playlistId' value='$playlist_id'>
-                                <button class='button buttonSmall green' onclick='showPlaylistSongs($playlist_id)'>
-                                    <i class='fa-regular fa-chevron-right'></i>
-                                </button>
-                                <button class='button buttonSmall red' onclick='showPlaylistOptions($playlist_id)'>
-                                    <i class='fa-regular fa-xmark'></i>
-                                </button>
                             </div>
                         </div>
                     </div>";
