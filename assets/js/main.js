@@ -43,6 +43,21 @@ function update_volume_progress(audio) {
     $('.volumeBar .progress').css('width', audio.volume * 100 + '%');
 }
 
+function create_playlist() {
+    let playlist_name = prompt("Enter a name for your playlist:");
+    
+    if(playlist_name != null || playlist_name != "") {
+        $.post("includes/handlers/ajax/create_playlist.php", {username: user_logged_in, playlist_name: playlist_name}).done(function(error) {
+            if(error) {
+                alert(error);
+                return;
+            }
+            open_page("your_music.php");
+        });
+        
+    }
+}
+
 class Audio {
 
     constructor(src) {
