@@ -58,7 +58,7 @@
                         </div>
                         <div class='trackOptions'>
                             <input type='hidden' class='songId' value='" . $song->get_id() . "'>
-                            <span role='link' tabindex='0' class='fa-regular fa-ellipsis-v' onclick='showOptionsMenu(this)'></i>
+                            <span id='optionsButton' role='link' tabindex='0' class='fa-regular fa-ellipsis-v' onclick='show_options_menu(this)'></i>
                         </div>
                     </li>";
                 $i++;
@@ -67,9 +67,24 @@
     </ul>
 </div>
 
+<nav class="optionsMenu">
+    <input type="hidden" class="menuSongId">
+    <div class="option" onclick="play_from_menu()">
+        <i class="fa-regular fa-play-circle"></i>
+        Play
+    </div>
+    <div class="option">
+        <i class="fa-regular fa-plus-circle"></i>
+        Add to Playlist
+    </div>
+</nav>
+
 <script>
     temp_playlist = <?php echo json_encode($songs_arr); ?>;
     $(".playAlbum").click(function() {
         setTrack(temp_playlist[0], temp_playlist, true);
     });
+    function play_from_menu() {
+        setTrack($(".menuSongId").val(), temp_playlist, true);
+    }
 </script>   
