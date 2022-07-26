@@ -54,5 +54,10 @@
             }
             return $songs;
         }
+
+        public function get_artist_id()
+        {
+            return $this->artist_id;
+        }
     }
 ?>
