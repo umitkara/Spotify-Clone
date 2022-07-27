@@ -78,11 +78,9 @@
 <nav class="optionsMenu">
     <input type="hidden" class="menuSongId">
     <div class="option" onclick="play_from_menu()">
-        <i class="fa-regular fa-play-circle"></i>
         Play
     </div>
-    <div class="option">
-        <i class="fa-regular fa-minus-circle"></i>
+    <div class="option" onclick="remove_from_playlist(<?php echo $playlist_id; ?>)">
         Remove from playlist
     </div>
 </nav>
