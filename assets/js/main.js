@@ -153,6 +153,16 @@ function add_to_playlist(element) {
     });
 }
 
+function logout() {
+    $.post("includes/handlers/ajax/logout.php").done(function(error) {
+        if(error != false) {
+            alert(error);
+            return;
+        }
+        window.location.replace("register.php");
+    });
+}
+
 class Audio {
 
     constructor(src) {
