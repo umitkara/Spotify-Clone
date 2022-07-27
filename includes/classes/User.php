@@ -29,5 +29,15 @@ class User {
     {
         return $this->username;
     }
+
+    public function get_playlists()
+    {
+        $playlists = array();
+        $query = mysqli_query($this->connection, "SELECT * FROM playlists WHERE owner = '$this->id'");
+        while ($row = mysqli_fetch_array($query)) {
+            $playlists[] = $row['id'];
+        }
+        return $playlists;
+    }
 }
 ?>
