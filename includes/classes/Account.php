@@ -92,7 +92,7 @@ class Account {
     private function insert_into_db(string $username, string $firstname, string $lastname, string $email, string $password)
     {
         $password = password_hash($password, PASSWORD_DEFAULT);
-        $profilePhoto = "assets/images/profile_pics/default.png";
+        $profilePhoto = "assets/images/profile_pics/default.jpg";
         $date = date("Y-m-d h:i:sa");
 
         $results = $this->connection->query("INSERT INTO users (username, firstname, lastname, email, password, registerDate, profilePhoto) VALUES ('$username', '$firstname', '$lastname', '$email', '$password', '$date', '$profilePhoto')");
