@@ -653,7 +653,7 @@ body {
 }
 
 .profilePicture:hover .changePictureOverlay {
-    display: flex;
+    opacity: 1;
 }
 
 .changePictureOverlay {
@@ -666,8 +666,10 @@ body {
     border-radius: 500px;
     justify-content: center;
     align-items: center;
-    display: none;
+    display: flex;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
 }
 
 .changePictureOverlay input {
