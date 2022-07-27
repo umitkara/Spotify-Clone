@@ -226,7 +226,7 @@ function update_password() {
 function delete_account() {
     let cfr = confirm("Are you sure you want to delete your account?");
     if(cfr) {
-        $.post("includes/handlers/ajax/delete_account.php").done(function(error) {
+        $.post("includes/handlers/ajax/delete_account.php", {username: user_logged_in}).done(function(error) {
             if(error != false) {
                 alert(error);
                 return;
