@@ -14,7 +14,7 @@ $user = new User($connection, $_SESSION['user_id']);
     </div>
     <div class="detailContainer">
         <h2>Password</h2>
-        <input id="oldPassword" name="oldPassword" type="password" placeholder="Old Password">
+        <input id="oldPassword" name="oldPassword" type="password" placeholder="Current Password">
         <input id="newPassword" name="newPassword" type="password" placeholder="New Password">
         <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm Password">
         <span id="passwordMessage" class="message"></span>
