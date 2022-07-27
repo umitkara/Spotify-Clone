@@ -93,6 +93,33 @@ function show_options_menu(element) {
     $(".menuSongId").val($(element).siblings(".songId").val());
 }
 
+function click_upload_profile_photo() {
+    elm = document.getElementById("changeProfilePhotoPicker");
+    elm.click();
+}
+
+function upload_profile_photo(element) {
+    let file = element.files[0];
+    let form_data = new FormData();
+    form_data.append("file", file);
+    form_data.append("username", user_logged_in);
+    $.ajax({
+        url: "includes/handlers/ajax/upload_profile_photo.php",
+        type: "POST",
+        data: form_data,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function(error) {
+            if(error != false) {
+                alert(error);
+                return;
+            }
+            open_page("settings.php");
+        }
+    });
+}
+
 function hide_options_menu() {
     $(".optionsMenu").hide();
 }
