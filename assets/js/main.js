@@ -171,6 +171,9 @@ function update_email() {
             email_message.classList.add("danger");
             return;
         }
+        if(email_message.classList.contains("danger")) {
+            email_message.classList.remove("danger");
+        }
         email_message.innerHTML = "Email updated successfully.";
     });
 }
@@ -220,6 +223,23 @@ function update_password() {
         $("#oldPassword").val("");
         $("#newPassword").val("");
         $("#confirmPassword").val("");
+    });
+}
+
+function update_name() {
+    let first_name = $("#firstName").val();
+    let last_name = $("#lastName").val();
+    let name_message = document.getElementById("nameMessage");
+    $.post("includes/handlers/ajax/update_name.php", {first_name: first_name, last_name: last_name, username: user_logged_in}).done(function(error) {
+        if(error != false) {
+            name_message.innerHTML = error;
+            name_message.classList.add("danger");
+            return;
+        }
+        if(name_message.classList.contains("danger")) {
+            name_message.classList.remove("danger");
+        }
+        name_message.innerHTML = "Name updated successfully.";
     });
 }
 
