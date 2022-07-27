@@ -17,6 +17,9 @@ $user = new User($connection, $_SESSION['user_id']);
         <h1>
             <?php echo $user->get_fullname(); ?>
         </h1>
+        <h3>
+            @<?php echo $user->get_username(); ?>
+        </h3>
         <button class="button green" onclick="open_page('user_settings.php')">
             User Settings
         </button>
