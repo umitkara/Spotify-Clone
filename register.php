@@ -10,17 +10,8 @@ if(isset($_SESSION['user_id']))
 // check if user_id cookie is set
 if(isset($_COOKIE['user_id']))
 {
-    // check if expired
-    if(time() - $_COOKIE['user_id'] > 3600)
-    {
-        // remove cookie
-        setcookie('user_id', '', time() - 3600, '/');
-    }
-    else
-    {
-        // set user_id
-        $_SESSION['user_id'] = $_COOKIE['user_id'];
-    }
+    // if it is, set the session user_id to the cookie user_id
+    $_SESSION['user_id'] = $_COOKIE['user_id'];
     header("Location: index.php");
 }
 
