@@ -731,3 +731,14 @@ body {
 .danger {
     color: #ff0000;
 }
+
+.nameDetails {
+    width: 100%;
+}
+
+.nameDetails label {
+    font-size: 1em;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+}
