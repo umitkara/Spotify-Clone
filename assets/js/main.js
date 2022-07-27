@@ -101,6 +101,18 @@ function play_from_menu() {
     setTrack($(".menuSongId").val(), temp_playlist, true);
 }
 
+function remove_from_playlist(playlist_id) {
+    let song_id = $(".menuSongId").val()
+    console.log(song_id, playlist_id);
+    $.post("includes/handlers/ajax/remove_from_playlist.php", {song_id: song_id, playlist_id: playlist_id}).done(function(error) {
+        if(error != false) {
+            alert(error);
+            return;
+        }
+        open_page("playlist.php?id=" + playlist_id);
+    });
+}
+
 function add_to_playlist(element) {
     let song_id = $(".menuSongId").val()
     let playlist_id = $(element).val();
@@ -110,7 +122,7 @@ function add_to_playlist(element) {
             alert(error);
             return;
         }
-        open_page("your_music.php");
+        open_page("playlist.php?id=" + playlist_id);
     });
 }
 
