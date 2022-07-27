@@ -12,6 +12,9 @@
         //header("Location: index.php");
     }
     $album = new Album($connection, $album_id);
+    $username = $_SESSION['user_id'];
+    $user = new User($connection, $username);
+    $playlists = $user->get_playlists();
 ?>
 
 <div class="entitiyInfo">
@@ -70,13 +73,17 @@
 <nav class="optionsMenu">
     <input type="hidden" class="menuSongId">
     <div class="option" onclick="play_from_menu()">
-        <i class="fa-regular fa-play-circle"></i>
         Play
-    </div>
-    <div class="option">
-        <i class="fa-regular fa-plus-circle"></i>
-        Add to Playlist
-    </div>
+    </div>  
+    <select class="option" name="playlist" onchange="add_to_playlist(this)">
+        <option value="" disabled selected>Add to Playlist</option>
+        <?php
+            foreach($playlists as $playlist) {
+                $p = new Playlist($connection, $playlist);
+                echo "<option value='" . $p->get_id() . "'>" . $p->get_name() . "</option>";
+            }
+        ?>
+    </select>
 </nav>
 
 <script>
