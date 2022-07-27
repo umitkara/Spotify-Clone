@@ -101,6 +101,19 @@ function play_from_menu() {
     setTrack($(".menuSongId").val(), temp_playlist, true);
 }
 
+function add_to_playlist(element) {
+    let song_id = $(".menuSongId").val()
+    let playlist_id = $(element).val();
+    element.value = "";
+    $.post("includes/handlers/ajax/add_to_playlist.php", {playlist_id: playlist_id, song_id: song_id}).done(function(error) {
+        if(error != false) {
+            alert(error);
+            return;
+        }
+        open_page("your_music.php");
+    });
+}
+
 class Audio {
 
     constructor(src) {
