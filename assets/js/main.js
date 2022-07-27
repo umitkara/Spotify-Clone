@@ -164,12 +164,14 @@ function logout() {
 
 function update_email() {
     let email = $("#email").val();
-    $.post("includes/handlers/ajax/update_email.php", {email: email}).done(function(error) {
+    let email_message = document.getElementById("emailMessage");
+    $.post("includes/handlers/ajax/update_email.php", {email: email, username: user_logged_in}).done(function(error) {
         if(error != false) {
-            alert(error);
+            email_message.innerHTML = error;
+            email_message.classList.add("danger");
             return;
         }
-        open_page("settings.php");
+        email_message.innerHTML = "Email updated successfully.";
     });
 }
 
