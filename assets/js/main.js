@@ -178,20 +178,48 @@ function update_email() {
 function update_password() {
     let old_password = $("#oldPassword").val();
     let new_password = $("#newPassword").val();
-    let new_password_confirm = $("#newPasswordConfirm").val();
+    let new_password_confirm = $("#confirmPassword").val();
     let password_message = document.getElementById("passwordMessage");
     if(new_password != new_password_confirm) {
         password_message.innerHTML = "Passwords do not match";
         password_message.classList.add("danger");
         return;
     }
-    $.post("includes/handlers/ajax/update_password.php", {old_password: old_password, new_password: new_password}).done(function(error) {
+    if(new_password == "" || new_password_confirm == "") {
+        password_message.innerHTML = "Please enter a new password";
+        password_message.classList.add("danger");
+        return;
+    }
+    if(new_password == old_password) {
+        password_message.innerHTML = "New password must be different from old password";
+        password_message.classList.add("danger");
+        return;
+    }
+    if(new_password.length < 5 || new_password.length > 25) {
+        password_message.innerHTML = "Password must be between 5 and 25 characters";
+        password_message.classList.add("danger");
+        return;
+    }
+    // if new pasword contains non-alphanumeric characters
+    if(/[^a-zA-Z0-9]/.test(new_password)) {
+        password_message.innerHTML = "Password must contain only alphanumeric characters";
+        password_message.classList.add("danger");
+        return;
+    }
+    $.post("includes/handlers/ajax/update_password.php", {old_password: old_password, new_password: new_password, username: user_logged_in}).done(function(error) {
         if(error != false) {
             password_message.innerHTML = error;
             password_message.classList.add("danger");
             return;
         }
-        open_page("user_settings.php");
+        password_message.innerHTML = "Password updated successfully.";
+        if(password_message.classList.contains("danger")) {
+            password_message.classList.remove("danger");
+        }
+        // clear password fields
+        $("#oldPassword").val("");
+        $("#newPassword").val("");
+        $("#confirmPassword").val("");
     });
 }
 
