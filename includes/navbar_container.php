@@ -26,7 +26,7 @@
                 </a>
             </div>
             <div class=" navItem">
-                <a onclick="open_page('profile.php')">
+                <a onclick="open_page('settings.php')">
                     <i class="fa-regular fa-user"></i>
                     Profile
                 </a>
