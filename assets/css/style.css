@@ -619,3 +619,16 @@ body {
     color: #ffffff;
     border-color: #1b1b1b;
 }
+
+.optionsMenu select {
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+    appearance: none;
+    padding: 0 !important;
+    padding-left: 17px !important;
+}
+.optionsMenu select option {
+    padding: 0;
+    margin: 0;
+}
