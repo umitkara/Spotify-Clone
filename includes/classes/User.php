@@ -47,6 +47,16 @@ class User {
         return $this->firstname . " " . $this->lastname;
     }
 
+    public function get_first_name()
+    {
+        return $this->firstname;
+    }
+
+    public function get_last_name()
+    {
+        return $this->lastname;
+    }
+
     public function get_profile_photo()
     {
         return $this->profile_photo;
