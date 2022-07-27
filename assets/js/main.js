@@ -1,7 +1,7 @@
 function openPage(page_url) {
     window.location.href = page_url;
 }
-
+// TODO: With using onbeforeunload event, store the currently playing playlist in local storage. load it insted of the default playlist when the page is loaded.
 var current_playlist = [];
 var shuffle_playlist = [];
 var temp_playlist = [];
@@ -46,7 +46,6 @@ function open_page(url) {
 }
 
 function time_format(secs) {
-    // return mm:ss format
     return Math.floor(secs / 60) + ":" + (secs % 60 < 10 ? "0" : "") + Math.floor(secs % 60);
 }
 
@@ -161,6 +160,50 @@ function logout() {
         }
         window.location.replace("register.php");
     });
+}
+
+function update_email() {
+    let email = $("#email").val();
+    $.post("includes/handlers/ajax/update_email.php", {email: email}).done(function(error) {
+        if(error != false) {
+            alert(error);
+            return;
+        }
+        open_page("settings.php");
+    });
+}
+
+function update_password() {
+    let old_password = $("#oldPassword").val();
+    let new_password = $("#newPassword").val();
+    let new_password_confirm = $("#newPasswordConfirm").val();
+    let password_message = document.getElementById("passwordMessage");
+    if(new_password != new_password_confirm) {
+        password_message.innerHTML = "Passwords do not match";
+        password_message.classList.add("danger");
+        return;
+    }
+    $.post("includes/handlers/ajax/update_password.php", {old_password: old_password, new_password: new_password}).done(function(error) {
+        if(error != false) {
+            password_message.innerHTML = error;
+            password_message.classList.add("danger");
+            return;
+        }
+        open_page("user_settings.php");
+    });
+}
+
+function delete_account() {
+    let cfr = confirm("Are you sure you want to delete your account?");
+    if(cfr) {
+        $.post("includes/handlers/ajax/delete_account.php").done(function(error) {
+            if(error != false) {
+                alert(error);
+                return;
+            }
+            window.location.replace("register.php");
+        });
+    }
 }
 
 class Audio {
