@@ -632,3 +632,53 @@ body {
     padding: 0;
     margin: 0;
 }
+
+.centerSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.profilePicture {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.profilePicture img {
+    border-radius: 500px;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.profilePicture:hover .changePictureOverlay {
+    display: flex;
+}
+
+.changePictureOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 500px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    cursor: pointer;
+}
+
+.changePictureOverlay input {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.changePictureOverlay label {
+    position: relative;
+    display: inline-block;
+    font-size: 3em;
+    cursor: pointer;
+}
