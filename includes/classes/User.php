@@ -6,6 +6,7 @@ class User {
     private $firstname;
     private $lastname;
     private $profile_photo;
+    private $email;
 
     public function __construct($connection, $id)
     {
@@ -18,6 +19,7 @@ class User {
             $this->firstname = $user['firstname'];
             $this->lastname = $user['lastname'];
             $this->profile_photo = $user['profilePhoto'];
+            $this->email = $user['email'];
         } else {
             $query = mysqli_query($connection, "SELECT * FROM users WHERE username = '$id'");
             $user = mysqli_fetch_assoc($query);
@@ -26,6 +28,7 @@ class User {
             $this->firstname = $user['firstname'];
             $this->lastname = $user['lastname'];
             $this->profile_photo = $user['profilePhoto'];
+            $this->email = $user['email'];
         }
     }
 
@@ -57,6 +60,11 @@ class User {
             $playlists[] = $row['id'];
         }
         return $playlists;
+    }
+
+    public function get_email()
+    {
+        return $this->email;
     }
 }
 ?>
