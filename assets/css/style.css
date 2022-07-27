@@ -720,3 +720,14 @@ body {
     font-size: 1.25em;
     letter-spacing: 2px;
 }
+
+.message {
+    font-weight: 400;
+    color: #1DB954;
+    font-size: 1em;
+    margin: 0 0 10px 0;
+}
+
+.danger {
+    color: #ff0000;
+}
