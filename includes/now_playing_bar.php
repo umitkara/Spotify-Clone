@@ -57,11 +57,11 @@ $(document).ready(function() {
     $(".volumeBar").mouseover(function() {
         $(this).on('wheel', function(event){
             if(event.originalEvent.deltaY < 0 && audio_element.audio.volume < 1) {
-                audio_element.audio.volume += 0.01;
+                audio_element.audio.volume += 0.005;
             };
             if(event.originalEvent.deltaY > 0 && audio_element.audio.volume > 0) {
                 if (audio_element.audio.volume > 0.01) {
-                    audio_element.audio.volume -= 0.01;
+                    audio_element.audio.volume -= 0.005;
                 } else {
                     audio_element.audio.volume = 0;
                 }
