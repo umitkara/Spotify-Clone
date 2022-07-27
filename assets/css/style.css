@@ -641,6 +641,17 @@ body {
 
 }
 
+.centerSection h1 {
+    font-size: 3em;
+    font-weight: 600;
+    margin: 10px 0 10px 0;
+}
+.centerSection h3 {
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0 0 20px 0;
+}
+
 .profilePicture {
     position: relative;
     box-sizing: border-box;
